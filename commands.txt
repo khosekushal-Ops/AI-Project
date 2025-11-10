@@ -1,0 +1,117 @@
+548  # commit means a snapshot ( a file which stores the code changes which you have commited)
+
+  549  # if commit get deleted then the snapshot is also deleted and you can not recover the changes
+
+  550  # .git which is local repo folder and if this folder is deleted then your entire repo is deleted
+
+  551  # git reset command- it will delete the commit , options --mixed default option( goes into untracked) , --soft (goes into stage area), -- hard (permanently deletes the commit)
+
+  552  # git reset deletes the recent commits means if you want to delete the commit which is last 3rd commit then you need to delete all the commits which are after that (second last and last commit)
+
+  553  touch tmp.java
+
+  554  ls
+
+  555  git status
+
+  556  git add .
+
+  557  git commit -m "tmp.java file is added"
+
+  558  git log --oneline
+
+  559  git reset HEAD~1
+
+  560  git log --oneline
+
+  561  git status
+
+  562  git add .
+
+  563  git status
+
+  564  git commit -m "tmp.java file is added in the repo"
+
+  565  git log --oneline
+
+  566  git reset --soft HEAD~1
+
+  567  git log --oneline
+
+  568  git status
+
+  569  git commit -m "tmp.java file is added"
+
+  570  git log --oneline
+
+  571  git reset --hard HEAD~1
+
+  572  git log --oneline
+
+  573  git status
+
+  574  ls
+
+  575  # revert command is to revert back the changes without deleteing the commits, whenever we are reverting the changes then it basically creates a new commit for the revert back changes(snapshot)
+
+  576  # I will create a appsettins.json file and add some data into this file and then we will do the revert back
+
+  577  # create a appsettings.json file
+
+  578  touch appsettings.json
+
+  579  ls
+
+  580  git status
+
+  581  git add .
+
+  582  git commit -m "appsettings.json file is added"
+
+  583  git log--oneline
+
+  584  git log --oneline
+
+  585  # add some content to my file
+
+  586  echo "{name:git}" > appsettings.json
+
+  587  cat appsettings.json
+
+  588  git status
+
+  589  git commit -m "appsettings.json file is updated"
+
+  590  git commit -am "appsettings.json file is updated"
+
+  591  git log --online
+
+  592  git log --oneline
+
+  593  cat appsettings.json
+
+  594  # now let's use the revert command to delete the content of appsettings.json file
+
+  595  git log --oneline
+
+  596  git diff 6fbed14 1e4ca37
+
+  597  git revert 6fbed14
+
+  598  cat appsettings.json
+
+  599  git log --oneline
+
+  600  git revert 8ecf347
+
+  601  cat appsettings.json
+
+  602  git log --oneline
+
+  603  git reset --hard HEAD~4
+
+  604  git log --oneline
+
+  605  ls
+
+ 
